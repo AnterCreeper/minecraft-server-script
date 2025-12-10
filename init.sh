@@ -54,7 +54,7 @@ sed -i "${eula}s/false/true/" eula.txt
 # setup server.properties
 while read args
 do
-IFS=',' read -ra arg <<< "${args}"
+IFS='=' read -ra arg <<< "${args}"
 sed -i "s/^${arg[0]}=.*/${arg[0]}=${arg[1]}/" server.properties
 done < $cfglist
 } &
