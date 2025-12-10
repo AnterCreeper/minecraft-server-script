@@ -1,0 +1,5 @@
+difficulty hard
+region-file-compression lz4
+view-distance 8
+simulation-distance 10
+sync-chunk-writes true
