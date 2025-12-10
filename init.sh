@@ -3,12 +3,10 @@
 major=0.18.2
 minor=1.1.0
 version=1.21.10
-
 eula=3                 #the line number of "eula=false"
 modlist="modlist.txt"  #url list of mods
 cfglist="cfglist.txt"  #modify list of server.properties
 xmxsize=6144           #Xmx size in megabytes
-
 source=https://meta.fabricmc.net/v2/versions/loader/$version/$major/$minor/server/jar
 jarfile=fabric-server-mc.$version-loader.$major-launcher.$minor.jar
 cmdline="-XX:+UseZGC -XX:+UnlockExperimentalVMOptions -XX:+ParallelRefProcEnabled -XX:+DisableExplicitGC -XX:+AlwaysPreTouch -XX:+PerfDisableSharedMem -XX:-DontCompileHugeMethods"
