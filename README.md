@@ -16,10 +16,11 @@ The files under the project:
 ### Usage
 
 1. clone the project `git clone <url of project>`
-2. create container with properties below:
+2. `chmod +x <path to project>/init.sh`
+3. create container with properties below:
 - image: `eclipse-temurin:21-jre`
 - mount: `<path to project>:/minecraft`
 - port: `25565:25565/tcp`
 - command: `/minecraft/init.sh`
-3. start the container and wait for initial setup procedure.
-4. connect interactive shell and type in `screen -r` to enter the console of minecraft server.
+4. start the container and wait for initial setup procedure.
+5. connect interactive shell and type in `screen -r` to enter the console of minecraft server.
