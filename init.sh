@@ -15,9 +15,13 @@ cmdline="-XX:+UseZGC -XX:+UnlockExperimentalVMOptions -XX:+ParallelRefProcEnable
 script_dir=$(cd "$(dirname "$0")" && pwd)
 cd "${script_dir}"
 
-# run script if exist
+# launch if exist
 launch() {
+# excute proxy
+
+# excute run script
 screen -DmS minecraft -s ./run.sh
+
 }
 if [ -f "run.sh" ]; then
 launch
@@ -26,8 +30,10 @@ fi
 
 {
 # install system packages
-apt update
-apt install -y screen aria2
+apt -y -qq update
+apt -y -qq install screen aria2 openssh-server openssh-sftp-server
+
+# download proxy daemon
 
 # download mod jarfiles
 mkdir mods
@@ -39,6 +45,7 @@ done < ../${modlist}
 } &
 
 {
+
 # download minecraft jarfile
 curl -OJ $source
 while [ ! -f "eula.txt" ]
