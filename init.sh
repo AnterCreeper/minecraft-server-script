@@ -17,10 +17,11 @@ cd "${script_dir}"
 
 # launch if exist
 launch() {
-# excute proxy
+# excute run script, -dmS: return, -DmS: block
+screen -dmS minecraft -s ./run.sh
 
-# excute run script
-screen -DmS minecraft -s ./run.sh
+# start proxy, opening minecraft and ssh port
+#chisel client --auth <username>:<password> <url> R:25565:localhost:25565 R:<port>:localhost:22
 
 }
 if [ -f "run.sh" ]; then
@@ -34,6 +35,8 @@ apt -y -qq update
 apt -y -qq install screen aria2 openssh-server openssh-sftp-server
 
 # download proxy daemon
+#curl -OJ <url>/chisel_1.11.4_linux_amd64.deb
+#dpkg -i chisel_1.11.4_linux_amd64.deb
 
 # download mod jarfiles
 mkdir mods
@@ -45,7 +48,6 @@ done < ../${modlist}
 } &
 
 {
-
 # download minecraft jarfile
 curl -OJ $source
 while [ ! -f "eula.txt" ]
